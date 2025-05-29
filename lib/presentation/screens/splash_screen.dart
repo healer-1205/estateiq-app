@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/auth/signup_screen.dart';
 import 'package:estate_iq/presentation/screens/home_screen.dart';
 import 'package:estate_iq/presentation/screens/onboarding_screen.dart';
 import 'package:estate_iq/presentation/widgets/splash_screen/div_overlay_widget.dart';
@@ -27,14 +28,14 @@ class _SplashScreenState extends State<SplashScreen> {
     Future<void> _checkAuthentication() async {
     bool isLoggedIn = await _authService.isLoggedIn();
 
-    await Future.delayed(const Duration(milliseconds: 1000));
+    await Future.delayed(const Duration(milliseconds: 3000));
 
     if (!mounted) return;
 
     if (isLoggedIn) {
       _checkOnboarding();
     } else {
-      Navigator.pushReplacementNamed(context, '/signin');
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
     }
   }
 
