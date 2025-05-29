@@ -1,3 +1,3 @@
-# app
+# EstateIQ
 
 A new Flutter project.
