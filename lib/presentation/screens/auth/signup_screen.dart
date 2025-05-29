@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:estate_iq/presentation/screens/auth/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -89,9 +90,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Make image bigger
                       SizedBox(
-                        height: 180, // Increased image height
+                        height: 180,
                         child: SvgPicture.asset(
                           svgData[index]['img']!,
                           fit: BoxFit.contain,
@@ -241,6 +241,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextButton(
                   onPressed: () {
                     // Navigate to Sign In Screen
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignInScreen()),
+                    );
                   },
                   style: TextButton.styleFrom(padding: EdgeInsets.zero),
                   child: const Text(
