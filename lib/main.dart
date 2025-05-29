@@ -2,6 +2,7 @@ import 'package:estate_iq/presentation/screens/splash_screen.dart'; // <-- Add t
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart';
 
 Future<void> _loadEnvironmentFile() async {
   try {
@@ -14,6 +15,14 @@ Future<void> _loadEnvironmentFile() async {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _loadEnvironmentFile();
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
 
   runApp(
     const MainApp(),
