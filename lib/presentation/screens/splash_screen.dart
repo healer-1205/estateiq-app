@@ -1,6 +1,7 @@
 import 'package:estate_iq/presentation/screens/home_screen.dart';
 import 'package:estate_iq/presentation/screens/onboarding_screen.dart';
 import 'package:estate_iq/presentation/widgets/splash_screen/div_overlay_widget.dart';
+import 'package:estate_iq/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,18 +17,30 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final AuthService _authService = AuthService();
   @override
   void initState() {
     super.initState();
-    _checkOnboarding();
+    _checkAuthentication();
+  }
+
+    Future<void> _checkAuthentication() async {
+    bool isLoggedIn = await _authService.isLoggedIn();
+
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    if (!mounted) return;
+
+    if (isLoggedIn) {
+      _checkOnboarding();
+    } else {
+      Navigator.pushReplacementNamed(context, '/signin');
+    }
   }
 
   Future<void> _checkOnboarding() async {
     final prefs = await SharedPreferences.getInstance();
     final showOnboarding = !(prefs.getBool('onboarding_complete') ?? false);
-
-    // Wait a moment to show splash (optional)
-    await Future.delayed(const Duration(milliseconds: 800));
 
     if (!mounted) return;
 
