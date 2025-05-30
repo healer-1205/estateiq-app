@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/auth/otp_screen.dart';
 import 'package:estate_iq/presentation/screens/auth/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -300,7 +301,15 @@ class _SignInScreenState extends State<SignInScreen> {
         const SizedBox(height: 12),
         // Log In Button
         ElevatedButton(
-          onPressed: _agreeTerms ? () {} : null,
+          onPressed: _agreeTerms
+              ? () {
+                  // Handle Login Logic
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => OtpScreen()),
+                  );
+                }
+              : null,
           style: ElevatedButton.styleFrom(
             backgroundColor: const Color(0xFF179C6C),
             shape: RoundedRectangleBorder(
@@ -325,7 +334,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   alignment: PlaceholderAlignment.middle,
                   child: TextButton(
                     onPressed: () {
-                      // Navigate to Sign Up Screen
                       // Navigate to Sign In Screen
                       Navigator.push(
                         context,
