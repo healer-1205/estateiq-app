@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/quetions/question_waiting_screen.dart';
 import 'package:flutter/material.dart';
 
 class QuestionStartScreen extends StatefulWidget {
@@ -121,6 +122,12 @@ class _QuestionStartScreenState extends State<QuestionStartScreen>
                       child: ElevatedButton(
                         onPressed: () {
                           // Handle Get Started
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuestionWaitingScreen(),
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
