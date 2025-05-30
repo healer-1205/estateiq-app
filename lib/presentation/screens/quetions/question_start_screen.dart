@@ -105,7 +105,7 @@ class _QuestionStartScreenState extends State<QuestionStartScreen>
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 28.0),
                       child: Text(
-                        "Smart investments start with the right keys—let’s unlock your potential together!\", “I hold the key to smarter real estate moves—let’s unlock your success!",
+                        "Smart investments start with the right keys—let’s unlock your potential together! I hold the key to smarter real estate moves—let’s unlock your success!",
                         style: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF8A97A8),
