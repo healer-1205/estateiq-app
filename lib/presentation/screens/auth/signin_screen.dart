@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/auth/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -148,7 +149,7 @@ class _SignInScreenState extends State<SignInScreen> {
             hintText: 'Enter Email',
             filled: true,
             fillColor: Colors.white,
-            contentPadding: const EdgeInsets.symmetric(vertical: 18),
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
               borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
@@ -178,7 +179,7 @@ class _SignInScreenState extends State<SignInScreen> {
             hintText: 'enter Password',
             filled: true,
             fillColor: Colors.white,
-            contentPadding: const EdgeInsets.symmetric(vertical: 18),
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
               borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
@@ -233,7 +234,7 @@ class _SignInScreenState extends State<SignInScreen> {
             Expanded(child: Divider()),
           ],
         ),
-        const SizedBox(height: 16),
+        const SizedBox(height: 8),
         // Social Buttons
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -252,7 +253,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
           ],
         ),
-        const SizedBox(height: 20),
+        const SizedBox(height: 8),
         Row(
           children: [
             Checkbox(
@@ -320,13 +321,31 @@ class _SignInScreenState extends State<SignInScreen> {
               style: const TextStyle(color: Color(0xFF8A97A8), fontSize: 13),
               children: [
                 const TextSpan(text: "You don't have account Signup ? "),
-                TextSpan(
-                  text: 'Sign up',
-                  style: const TextStyle(
-                    color: Color(0xFF179C6C),
-                    fontWeight: FontWeight.bold,
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
+                  child: TextButton(
+                    onPressed: () {
+                      // Navigate to Sign Up Screen
+                      // Navigate to Sign In Screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: Size(0, 0),
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    ),
+                    child: const Text(
+                      'Sign up',
+                      style: TextStyle(
+                        color: Color(0xFF179C6C),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                      ),
+                    ),
                   ),
-                  // recognizer: TapGestureRecognizer()..onTap = () {}, // Add navigation if needed
                 ),
               ],
             ),
@@ -352,7 +371,7 @@ class _SocialSvgIconButton extends StatelessWidget {
       ),
       child: IconButton(
         onPressed: onTap,
-        icon: SvgPicture.asset(assetPath, width: 28, height: 28),
+        icon: SvgPicture.asset(assetPath, width: 42, height: 42),
         splashRadius: 28,
       ),
     );
