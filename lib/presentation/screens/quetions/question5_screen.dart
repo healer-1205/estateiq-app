@@ -1,6 +1,5 @@
-import 'package:estate_iq/presentation/screens/quetions/question4_confirm_screen.dart';
+import 'package:estate_iq/presentation/screens/quetions/question5_confirm_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Question5Screen extends StatefulWidget {
   const Question5Screen({super.key});
@@ -10,7 +9,7 @@ class Question5Screen extends StatefulWidget {
 }
 
 class _Question5ScreenState extends State<Question5Screen> {
-  final TextEditingController _controller = TextEditingController();
+  int selectedPurchaseType = 0; // 0: Cash Purchase, 1: Mortgage Required
 
   @override
   Widget build(BuildContext context) {
@@ -141,95 +140,135 @@ class _Question5ScreenState extends State<Question5Screen> {
                 padding: const EdgeInsets.symmetric(horizontal: 32.0),
                 child: Column(
                   children: [
-                    // Input field
-                    Container(
-                      height: 48,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: const Color(0xFFE5E7EB),
-                          width: 1.5,
+                    // Cash Purchase Option
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        selectedPurchaseType = 0;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Question5ConfirmScreen(),
+                          ),
+                        );
+                      }),
+                      child: Container(
+                        height: 54,
+                        margin: const EdgeInsets.only(bottom: 14),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: selectedPurchaseType == 0
+                                ? const Color(0xFF13C39C)
+                                : const Color(0xFFE5E7EB),
+                            width: 1.5,
+                          ),
+                          borderRadius: BorderRadius.circular(14),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12.0),
-                            child: Icon(
-                              FontAwesomeIcons.locationDot,
-                              color: Color(0xFFBFC6CE),
-                              size: 18,
-                            ),
-                          ),
-                          Expanded(
-                            child: TextField(
-                              controller: _controller,
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                hintText: "Enter City or Post Code",
-                                hintStyle: TextStyle(
-                                  color: Color(0xFFBFC6CE),
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 16,
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 16),
+                            Container(
+                              width: 18,
+                              height: 18,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: selectedPurchaseType == 0
+                                      ? const Color(0xFF13C39C)
+                                      : const Color(0xFFBFC6CE),
+                                  width: 2,
                                 ),
-                                isDense: true,
+                                color: Colors.white,
                               ),
-                              style: const TextStyle(
+                              child: selectedPurchaseType == 0
+                                  ? Center(
+                                      child: Container(
+                                        width: 10,
+                                        height: 10,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF13C39C),
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                    )
+                                  : null,
+                            ),
+                            const SizedBox(width: 14),
+                            const Text(
+                              "Cash Purchase",
+                              style: TextStyle(
+                                color: Color(0xFF374151),
+                                fontWeight: FontWeight.w500,
                                 fontSize: 16,
-                                color: Color(0xFF232B36),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 16),
-                    // AI Suggestion
-                    Container(
-                      height: 54,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF5F5F5),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 12.0, right: 6.0),
-                            child: Icon(
-                              FontAwesomeIcons.wandMagicSparkles,
-                              color: Color(0xFF13C39C),
-                              size: 20,
-                            ),
+                    // Mortgage Required Option
+                    GestureDetector(
+                      onTap: () => setState(() {
+                        selectedPurchaseType = 1;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Question5ConfirmScreen(),
                           ),
-                          Flexible(
-                            child: TextButton(
-                              onPressed: () {
-                                // AI 추천 로직 또는 다음 단계로 이동
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        Question4ConfirmScreen(),
-                                  ),
-                                );
-                              },
-                              style: TextButton.styleFrom(
-                                foregroundColor: const Color(0xFF13C39C),
-                                padding: EdgeInsets.zero,
-                                textStyle: const TextStyle(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
+                        );
+                      }),
+                      child: Container(
+                        height: 54,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: selectedPurchaseType == 1
+                                ? const Color(0xFF13C39C)
+                                : const Color(0xFFE5E7EB),
+                            width: 1.5,
+                          ),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 16),
+                            Container(
+                              width: 18,
+                              height: 18,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: selectedPurchaseType == 1
+                                      ? const Color(0xFF13C39C)
+                                      : const Color(0xFFBFC6CE),
+                                  width: 2,
                                 ),
+                                color: Colors.white,
                               ),
-                              child: const Text(
-                                "Not Sure? Let AI suggest top-performing areas",
-                                textAlign: TextAlign.center,
+                              child: selectedPurchaseType == 1
+                                  ? Center(
+                                      child: Container(
+                                        width: 10,
+                                        height: 10,
+                                        decoration: const BoxDecoration(
+                                          color: Color(0xFF13C39C),
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                    )
+                                  : null,
+                            ),
+                            const SizedBox(width: 14),
+                            const Text(
+                              "Mortgage Required",
+                              style: TextStyle(
+                                color: Color(0xFF374151),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ],

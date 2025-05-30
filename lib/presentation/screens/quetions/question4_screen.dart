@@ -185,7 +185,6 @@ class _Question4ScreenState extends State<Question4Screen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    // AI Suggestion
                     Container(
                       height: 54,
                       decoration: BoxDecoration(
@@ -206,7 +205,6 @@ class _Question4ScreenState extends State<Question4Screen> {
                           Flexible(
                             child: TextButton(
                               onPressed: () {
-                                // AI 추천 로직 또는 다음 단계로 이동
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
