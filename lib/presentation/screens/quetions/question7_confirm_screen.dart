@@ -1,8 +1,8 @@
-import 'package:estate_iq/presentation/screens/quetions/question7_screen.dart';
+import 'package:estate_iq/presentation/screens/quetions/question_all_set_screen.dart';
 import 'package:flutter/material.dart';
 
-class Question6ConfirmScreen extends StatelessWidget {
-  const Question6ConfirmScreen({super.key});
+class Question7ConfirmScreen extends StatelessWidget {
+  const Question7ConfirmScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class Question6ConfirmScreen extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 32.0),
               child: Text(
-                "Great choice! Renovation projects can significantly increase property value. I'll focus on properties with strong upside potential and provide estimated ROI after improvements.",
+                "Smart move! I'll calculate estimated taxes for rental income and potential capital gains, so you will have a clearer picture of your investment's net returns.",
                 style: TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.w500,
@@ -62,7 +62,7 @@ class Question6ConfirmScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Question7Screen(),
+                        builder: (context) => QuestionAllSetScreen(),
                       ),
                     );
                   },
