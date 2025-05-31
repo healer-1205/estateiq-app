@@ -1,4 +1,3 @@
-import 'package:estate_iq/presentation/screens/home/nav_screen.dart';
 import 'package:estate_iq/presentation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -13,7 +12,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   final List<Widget> _screens = [
-    TopNavigationBar(),
+    HomeScreen(),
     HomeScreen(),
     HomeScreen(),
     HomeScreen(),
