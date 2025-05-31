@@ -1,5 +1,5 @@
 import 'package:estate_iq/presentation/screens/auth/signup_screen.dart';
-import 'package:estate_iq/presentation/screens/home_screen.dart';
+import 'package:estate_iq/presentation/screens/home/home_screen.dart';
 import 'package:estate_iq/presentation/screens/onboarding_screen.dart';
 import 'package:estate_iq/presentation/widgets/splash_screen/div_overlay_widget.dart';
 import 'package:estate_iq/services/auth_service.dart';

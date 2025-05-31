@@ -124,7 +124,7 @@ class _Question1ScreenState extends State<Question1Screen> {
             ),
             const SizedBox(height: 18),
             const Text(
-              "what’s your investment goal?’",
+              "what’s your investment goal?",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
@@ -253,7 +253,7 @@ class _GoalOptionWidget extends StatelessWidget {
             boxShadow: [
               if (selected)
                 BoxShadow(
-                  color: const Color(0xFF13C39C).withOpacity(0.08),
+                  color: const Color(0xFF13C39C).withValues(alpha: .08),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
