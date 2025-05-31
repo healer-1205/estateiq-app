@@ -1,4 +1,4 @@
-import 'package:estate_iq/presentation/screens/home_screen.dart';
+import 'package:estate_iq/presentation/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class QuestionAllSetScreen extends StatefulWidget {
@@ -125,7 +125,7 @@ class _QuestionAllSetScreenState extends State<QuestionAllSetScreen>
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
+                              builder: (context) => MainScreen(),
                             ),
                           );
                         },
