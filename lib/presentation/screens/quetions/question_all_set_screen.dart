@@ -23,9 +23,10 @@ class _QuestionAllSetScreenState extends State<QuestionAllSetScreen>
       vsync: this,
       duration: const Duration(milliseconds: 900),
     );
-    _imageAnimation = Tween<double>(begin: 250, end: 0).animate(
-      CurvedAnimation(parent: _imageController, curve: Curves.easeOutBack),
-    );
+    _imageAnimation = Tween<double>(
+      begin: 110,
+      end: 0,
+    ).animate(CurvedAnimation(parent: _imageController, curve: Curves.easeOut));
 
     _fadeController = AnimationController(
       vsync: this,
@@ -69,19 +70,25 @@ class _QuestionAllSetScreenState extends State<QuestionAllSetScreen>
                       shape: BoxShape.circle,
                     ),
                   ),
-                  AnimatedBuilder(
-                    animation: _imageAnimation,
-                    builder: (context, child) {
-                      return Transform.translate(
-                        offset: Offset(0, _imageAnimation.value),
-                        child: child,
-                      );
-                    },
-                    child: Image.asset(
-                      'assets/images/agent.png',
+                  ClipOval(
+                    child: SizedBox(
                       width: 160,
                       height: 160,
-                      fit: BoxFit.contain,
+                      child: AnimatedBuilder(
+                        animation: _imageAnimation,
+                        builder: (context, child) {
+                          return Transform.translate(
+                            offset: Offset(0, _imageAnimation.value),
+                            child: child,
+                          );
+                        },
+                        child: Image.asset(
+                          'assets/images/agent.png',
+                          width: 160,
+                          height: 160,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
                     ),
                   ),
                 ],
