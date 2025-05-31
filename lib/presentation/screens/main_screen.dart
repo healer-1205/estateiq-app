@@ -55,7 +55,7 @@ class _MainScreenState extends State<MainScreen> {
             label: 'FAVOURITE',
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.userSecret),
+            icon: FaIcon(FontAwesomeIcons.user),
             label: 'PROFILE',
           ),
         ],
