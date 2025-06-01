@@ -49,71 +49,72 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                     ),
                   ),
                   Positioned(
-                    top: 12,
                     left: 24,
+                    right: 12,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 3,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color(
-                              0xFF9C9C9C,
-                            ).withValues(alpha: .54),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Text(
-                            'APARTMENT',
-                            style: TextStyle(
-                              color: Color(0xFFE9E6E4),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 11,
-                              letterSpacing: 0.5,
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 3,
+                              ),
+                              decoration: BoxDecoration(
+                                color: const Color(
+                                  0xFF9C9C9C,
+                                ).withValues(alpha: .54),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Text(
+                                'APARTMENT',
+                                style: TextStyle(
+                                  color: Color(0xFFE9E6E4),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 11,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
                             ),
-                          ),
+                            const SizedBox(width: 12),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 3,
+                              ),
+                              decoration: BoxDecoration(
+                                color: const Color(
+                                  0xFF9C9C9C,
+                                ).withValues(alpha: .54),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Text(
+                                'Low Risk ROI 3%',
+                                style: TextStyle(
+                                  color: Color(0xFFE9E6E4),
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 11,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(width: 12),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
-                            vertical: 3,
+                        IconButton(
+                          icon: Icon(
+                            isFavorite ? Icons.favorite : Icons.favorite_border,
+                            color: isFavorite
+                                ? Colors.red
+                                : const Color(0xFFFFFFFF),
                           ),
-                          decoration: BoxDecoration(
-                            color: const Color(
-                              0xFF9C9C9C,
-                            ).withValues(alpha: .54),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: const Text(
-                            'Low Risk ROI 3%',
-                            style: TextStyle(
-                              color: Color(0xFFE9E6E4),
-                              fontWeight: FontWeight.w600,
-                              fontSize: 11,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
+                          onPressed: () {
+                            setState(() {
+                              isFavorite = !isFavorite;
+                            });
+                          },
                         ),
                       ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 12,
-                    right: 12,
-                    child: IconButton(
-                      icon: Icon(
-                        isFavorite ? Icons.favorite : Icons.favorite_border,
-                        color: isFavorite
-                            ? Colors.red
-                            : const Color(0xFFBFC6CE),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          isFavorite = !isFavorite;
-                        });
-                      },
                     ),
                   ),
                 ],
@@ -133,18 +134,18 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                           child: Text(
                             'Grand Tower',
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 17,
-                              color: Color(0xFF232B36),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                              color: Color(0xFF07574E),
                             ),
                           ),
                         ),
                         Text(
                           '£98,000',
                           style: TextStyle(
-                            color: Color(0xFF13C39C),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 17,
+                            color: Color(0xFF07574E),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
                           ),
                         ),
                       ],
