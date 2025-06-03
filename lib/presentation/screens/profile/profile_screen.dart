@@ -100,6 +100,7 @@ class ProfileScreen extends StatelessWidget {
                       label: 'My Preferences',
                       onTap: () {
                         // Navigate to My Preferences
+                        debugPrint('My Preferences tapped');
                       },
                     ),
                     _ProfileMenuItem(
@@ -108,6 +109,7 @@ class ProfileScreen extends StatelessWidget {
                       label: 'Settings',
                       onTap: () {
                         // Navigate to Settings
+                        debugPrint('Settings tapped');
                       },
                     ),
                     _ProfileMenuItem(
@@ -116,6 +118,7 @@ class ProfileScreen extends StatelessWidget {
                       label: 'Help & Support',
                       onTap: () {
                         // Navigate to Help & Support
+                        debugPrint('Help & Support tapped');
                       },
                     ),
                     _ProfileMenuItem(
@@ -124,7 +127,9 @@ class ProfileScreen extends StatelessWidget {
                       label: 'Rate our app',
                       onTap: () {
                         // Navigate to Rate our app
+                        debugPrint('Rate our app tapped');
                       },
+                      showDivider: false,
                     ),
                   ],
                 ),
@@ -142,12 +147,14 @@ class _ProfileMenuItem extends StatelessWidget {
   final Color iconColor;
   final String label;
   final VoidCallback? onTap;
+  final bool showDivider;
 
   const _ProfileMenuItem({
     required this.icon,
     required this.iconColor,
     required this.label,
     this.onTap,
+    this.showDivider = true,
   });
 
   @override
@@ -175,13 +182,14 @@ class _ProfileMenuItem extends StatelessWidget {
           ),
           minLeadingWidth: 0,
         ),
-        const Divider(
-          height: 0,
-          thickness: 1,
-          color: Color(0xFFF3F6F9),
-          indent: 16,
-          endIndent: 16,
-        ),
+        if (showDivider)
+          const Divider(
+            height: 0,
+            thickness: 1,
+            color: Color(0xFFF3F6F9),
+            indent: 16,
+            endIndent: 16,
+          ),
       ],
     );
   }
