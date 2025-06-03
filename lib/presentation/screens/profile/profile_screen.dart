@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/profile/setting_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -107,7 +108,12 @@ class ProfileScreen extends StatelessWidget {
                           iconColor: Color(0xFFFFB6B6),
                           label: 'Settings',
                           onTap: () {
-                            debugPrint('Settings tapped');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => SettingScreen(),
+                              ),
+                            );
                           },
                         ),
                         _ProfileMenuItem(
