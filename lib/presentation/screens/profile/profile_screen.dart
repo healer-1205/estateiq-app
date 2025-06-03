@@ -67,72 +67,71 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 18),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: ListView(
-                  physics: const BouncingScrollPhysics(),
-                  children: [
-                    _ProfileMenuItem(
-                      icon: Icons.home_rounded,
-                      iconColor: Color(0xFFFFA96B),
-                      label: 'My Properties',
-                      onTap: () {
-                        // Navigate to My Properties
-                        debugPrint('My Properties tapped');
-                      },
+              child: ListView(
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(14),
                     ),
-                    _ProfileMenuItem(
-                      icon: Icons.remove_red_eye_outlined,
-                      iconColor: Color(0xFF6BEAFF),
-                      label: 'My Inquiries',
-                      onTap: () {
-                        // Navigate to My Inquiries
-                        debugPrint('My Inquiries tapped');
-                      },
+                    child: Column(
+                      children: [
+                        _ProfileMenuItem(
+                          icon: Icons.home_rounded,
+                          iconColor: Color(0xFFFFA96B),
+                          label: 'My Properties',
+                          onTap: () {
+                            debugPrint('My Properties tapped');
+                          },
+                        ),
+                        _ProfileMenuItem(
+                          icon: Icons.remove_red_eye_outlined,
+                          iconColor: Color(0xFF6BEAFF),
+                          label: 'My Inquiries',
+                          onTap: () {
+                            debugPrint('My Inquiries tapped');
+                          },
+                        ),
+                        _ProfileMenuItem(
+                          icon: Icons.person_outline,
+                          iconColor: Color(0xFF8D8CFF),
+                          label: 'My Preferences',
+                          onTap: () {
+                            debugPrint('My Preferences tapped');
+                          },
+                        ),
+                        _ProfileMenuItem(
+                          icon: Icons.settings_outlined,
+                          iconColor: Color(0xFFFFB6B6),
+                          label: 'Settings',
+                          onTap: () {
+                            debugPrint('Settings tapped');
+                          },
+                        ),
+                        _ProfileMenuItem(
+                          icon: Icons.headset_mic_outlined,
+                          iconColor: Color(0xFFB6B6FF),
+                          label: 'Help & Support',
+                          onTap: () {
+                            debugPrint('Help & Support tapped');
+                          },
+                        ),
+                        _ProfileMenuItem(
+                          icon: Icons.star_border_rounded,
+                          iconColor: Color(0xFFFFD36B),
+                          label: 'Rate our app',
+                          onTap: () {
+                            debugPrint('Rate our app tapped');
+                          },
+                          showDivider: false,
+                        ),
+                      ],
                     ),
-                    _ProfileMenuItem(
-                      icon: Icons.person_outline,
-                      iconColor: Color(0xFF8D8CFF),
-                      label: 'My Preferences',
-                      onTap: () {
-                        // Navigate to My Preferences
-                        debugPrint('My Preferences tapped');
-                      },
-                    ),
-                    _ProfileMenuItem(
-                      icon: Icons.settings_outlined,
-                      iconColor: Color(0xFFFFB6B6),
-                      label: 'Settings',
-                      onTap: () {
-                        // Navigate to Settings
-                        debugPrint('Settings tapped');
-                      },
-                    ),
-                    _ProfileMenuItem(
-                      icon: Icons.headset_mic_outlined,
-                      iconColor: Color(0xFFB6B6FF),
-                      label: 'Help & Support',
-                      onTap: () {
-                        // Navigate to Help & Support
-                        debugPrint('Help & Support tapped');
-                      },
-                    ),
-                    _ProfileMenuItem(
-                      icon: Icons.star_border_rounded,
-                      iconColor: Color(0xFFFFD36B),
-                      label: 'Rate our app',
-                      onTap: () {
-                        // Navigate to Rate our app
-                        debugPrint('Rate our app tapped');
-                      },
-                      showDivider: false,
-                    ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 24),
+                ],
               ),
             ),
           ],
