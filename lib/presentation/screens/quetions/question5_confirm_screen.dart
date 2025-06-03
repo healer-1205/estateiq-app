@@ -24,7 +24,7 @@ class _Question5ConfirmScreenState extends State<Question5ConfirmScreen>
       duration: const Duration(milliseconds: 900),
     );
     _imageAnimation = Tween<double>(
-      begin: 110,
+      begin: 200,
       end: 0,
     ).animate(CurvedAnimation(parent: _imageController, curve: Curves.easeOut));
 
