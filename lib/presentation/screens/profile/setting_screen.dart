@@ -38,6 +38,7 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF3F6F9),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -54,11 +55,12 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
         ),
         centerTitle: false,
+        foregroundColor: const Color(0xFF232B36),
+        surfaceTintColor: Colors.white,
       ),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-        
           Container(
             color: Colors.white,
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
@@ -98,26 +100,26 @@ class _SettingScreenState extends State<SettingScreen> {
               ],
             ),
           ),
-          _SectionHeader('Account Settings'),
+          const _SectionHeader('Account Settings'),
           _SettingTile(
-            icon: Icons.notifications_none,
+            icon: Icons.notifications,
             iconColor: Colors.green,
             title: 'Notifications',
             onTap: () {},
           ),
           _SettingTile(
-            icon: Icons.lock_outline,
+            icon: Icons.lock,
             iconColor: Colors.green,
             title: 'Privacy & Security',
             onTap: () {},
           ),
           _SettingTile(
-            icon: Icons.credit_card_outlined,
+            icon: Icons.credit_card,
             iconColor: Colors.green,
             title: 'Payment Methods',
             onTap: () {},
           ),
-          _SectionHeader('AI Preferences'),
+          const _SectionHeader('AI Preferences'),
           _SettingTile(
             icon: Icons.account_tree_outlined,
             iconColor: Colors.green,
@@ -136,7 +138,7 @@ class _SettingScreenState extends State<SettingScreen> {
             title: 'Market Preferences',
             onTap: () {},
           ),
-          _SectionHeader('App Settings'),
+          const _SectionHeader('App Settings'),
           _SettingTile(
             icon: Icons.language,
             iconColor: Colors.green,
@@ -175,7 +177,7 @@ class _SettingScreenState extends State<SettingScreen> {
           //   activeColor: Colors.green,
           //   contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           // ),
-          _SectionHeader('Support'),
+          const _SectionHeader('Support'),
           _SettingTile(
             icon: Icons.help_outline,
             iconColor: Colors.green,
@@ -199,6 +201,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
+                backgroundColor: Colors.transparent,
               ),
               onPressed: () {},
               child: const Text(
@@ -214,7 +217,6 @@ class _SettingScreenState extends State<SettingScreen> {
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.red,
                 side: const BorderSide(color: Colors.red),
-                backgroundColor: Colors.red.withValues(alpha: .08),
                 minimumSize: const Size.fromHeight(48),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -241,7 +243,7 @@ class _SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFF3F6F9),
+      // color: const Color(0xFFF3F6F9), // <-- 이 줄 삭제
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       alignment: Alignment.centerLeft,
       child: Text(
