@@ -13,7 +13,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: InkWell(
         borderRadius: BorderRadius.circular(18),
         onTap: () {
@@ -25,7 +25,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
             borderRadius: BorderRadius.circular(18),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF232B36).withValues(alpha: .06),
+                color: const Color(0xFF232B36).withValues(alpha: .1),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -151,29 +151,28 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                       ],
                     ),
                     const SizedBox(height: 4),
-                    const Text(
-                      '25 Maple Drive, London, UK',
-                      style: TextStyle(
-                        color: Color(0xFF8A97A8),
-                        fontWeight: FontWeight.w500,
-                        fontSize: 13,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
                     Row(
                       children: [
-                        _IconText(icon: Icons.bed, text: '3'),
-                        const SizedBox(width: 10),
-                        _IconText(icon: Icons.bathtub, text: '2'),
-                        const SizedBox(width: 10),
-                        _IconText(icon: Icons.directions_car, text: '2'),
-                        const SizedBox(width: 10),
-                        _IconText(icon: Icons.square_foot, text: '900 ft²'),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: Color(0xFF8F9AA3),
+                                size: 12,
+                              ),
+                              SizedBox(width: 4),
+                              Text(
+                                '25 Maple Drive, London, UK',
+                                style: TextStyle(
+                                  color: Color(0xFF8F9AA3),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 10,
@@ -192,43 +191,64 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                             ),
                           ),
                         ),
-                        const Spacer(),
-                        const Text(
-                          'Invest Score',
-                          style: TextStyle(
-                            color: Color(0xFF8A97A8),
-                            fontWeight: FontWeight.w500,
-                            fontSize: 13,
-                          ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            _IconText(icon: Icons.bed, text: '3'),
+                            const SizedBox(width: 10),
+                            _IconText(icon: Icons.shower_outlined, text: '2'),
+                            const SizedBox(width: 10),
+                            _IconText(icon: Icons.directions_car, text: '2'),
+                            const SizedBox(width: 10),
+                            _IconText(icon: Icons.square_foot, text: '900 ft²'),
+                          ],
                         ),
-                        const SizedBox(width: 4),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 7,
-                            vertical: 2,
-                          ),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFFF7E6),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Row(
-                            children: const [
-                              Icon(
-                                Icons.star,
-                                color: Color(0xFFFFB800),
-                                size: 14,
+                        Row(
+                          children: [
+                            const Text(
+                              'Invest Score',
+                              style: TextStyle(
+                                color: Color(0xFF8A97A8),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 13,
                               ),
-                              SizedBox(width: 2),
-                              Text(
-                                '4.5',
-                                style: TextStyle(
-                                  color: Color(0xFFFFB800),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 13,
-                                ),
+                            ),
+                            const SizedBox(width: 4),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 7,
+                                vertical: 2,
                               ),
-                            ],
-                          ),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFFFF7E6),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.star_border,
+                                    color: Color(0xFFFFB800),
+                                    size: 14,
+                                  ),
+                                  SizedBox(width: 2),
+                                  Text(
+                                    '4.5',
+                                    style: TextStyle(
+                                      color: Color(0xFFFFB800),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
