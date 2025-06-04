@@ -98,31 +98,33 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
               ),
               // White Card
-              Positioned(
-                top: -constraints.maxHeight * 0.20,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 370, minWidth: 0),
-                    child: Material(
-                      color: Colors.transparent,
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 12),
-                        padding: const EdgeInsets.fromLTRB(24, 36, 24, 48),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 10,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
-                        ),
-                        child: SingleChildScrollView(
+              Align(
+                alignment: Alignment.topCenter,
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.only(
+                    top: constraints.maxHeight * 0.11,
+                    left: 12,
+                    right: 12,
+                    bottom: MediaQuery.of(context).viewInsets.bottom + 24,
+                  ),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(maxWidth: 370, minWidth: 0),
+                      child: Material(
+                        color: Colors.transparent,
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(24, 36, 24, 48),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 10,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             mainAxisAlignment: MainAxisAlignment.start,
