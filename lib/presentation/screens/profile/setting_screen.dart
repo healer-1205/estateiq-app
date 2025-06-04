@@ -61,43 +61,50 @@ class _SettingScreenState extends State<SettingScreen> {
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
-          Container(
-            color: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 28,
-                  backgroundImage: AssetImage(
-                    'assets/images/example_avatar.png',
+          InkWell(
+            onTap: () {
+              // Navigator.push(context, MaterialPageRoute(builder: (_) => ProfileEditScreen()));
+              debugPrint('Profile tapped');
+            },
+            borderRadius: BorderRadius.circular(16),
+            child: Container(
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 28,
+                    backgroundImage: AssetImage(
+                      'assets/images/example_avatar.png',
+                    ),
                   ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'John Anderson',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                          color: Color(0xFF232B36),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'John Anderson',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            color: Color(0xFF232B36),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Text(
-                        'Premium Member',
-                        style: TextStyle(
-                          color: Color(0xFF8A97A8),
-                          fontSize: 14,
+                        SizedBox(height: 4),
+                        Text(
+                          'Premium Member',
+                          style: TextStyle(
+                            color: Color(0xFF8A97A8),
+                            fontSize: 14,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                const Icon(Icons.chevron_right, color: Color(0xFFBFC6CE)),
-              ],
+                  const Icon(Icons.chevron_right, color: Color(0xFFBFC6CE)),
+                ],
+              ),
             ),
           ),
           const _SectionHeader('Account Settings'),
@@ -121,7 +128,7 @@ class _SettingScreenState extends State<SettingScreen> {
           ),
           const _SectionHeader('AI Preferences'),
           _SettingTile(
-            icon: Icons.account_tree_outlined,
+            icon: Icons.support_agent,
             iconColor: Colors.green,
             title: 'Investment Strategy',
             onTap: () {},
@@ -179,13 +186,13 @@ class _SettingScreenState extends State<SettingScreen> {
           // ),
           const _SectionHeader('Support'),
           _SettingTile(
-            icon: Icons.help_outline,
+            icon: Icons.help,
             iconColor: Colors.green,
             title: 'Help Center',
             onTap: () {},
           ),
           _SettingTile(
-            icon: Icons.chat_bubble_outline,
+            icon: Icons.chat_bubble,
             iconColor: Colors.green,
             title: 'Contact Support',
             onTap: () {},
