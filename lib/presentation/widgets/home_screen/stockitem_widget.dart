@@ -45,7 +45,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                       'assets/images/example_stock.png',
                       height: 120,
                       width: double.infinity,
-                      fit: BoxFit.contain,
+                      fit: BoxFit.fill,
                     ),
                   ),
                   Positioned(
@@ -122,7 +122,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
               // Info
               Padding(
                 padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
+                  horizontal: 8,
                   vertical: 12,
                 ),
                 child: Column(
@@ -159,7 +159,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                               Icon(
                                 Icons.location_on,
                                 color: Color(0xFF8F9AA3),
-                                size: 12,
+                                size: 10,
                               ),
                               SizedBox(width: 4),
                               Text(
@@ -167,7 +167,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                                 style: TextStyle(
                                   color: Color(0xFF8F9AA3),
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 12,
+                                  fontSize: 10,
                                 ),
                               ),
                             ],
@@ -175,7 +175,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 10,
+                            horizontal: 6,
                             vertical: 3,
                           ),
                           decoration: BoxDecoration(
@@ -183,7 +183,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: const Text(
-                            'RISK LEVEL : HIGH',
+                            'RISK LEVEL: HIGH',
                             style: TextStyle(
                               color: Color(0xFFFF5A5A),
                               fontWeight: FontWeight.bold,
@@ -201,11 +201,11 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                         Row(
                           children: [
                             _IconText(icon: Icons.bed, text: '3'),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: 6),
                             _IconText(icon: Icons.shower_outlined, text: '2'),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: 6),
                             _IconText(icon: Icons.directions_car, text: '2'),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: 6),
                             _IconText(icon: Icons.square_foot, text: '900 ft²'),
                           ],
                         ),
@@ -216,7 +216,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                               style: TextStyle(
                                 color: Color(0xFF8A97A8),
                                 fontWeight: FontWeight.w500,
-                                fontSize: 13,
+                                fontSize: 10,
                               ),
                             ),
                             const SizedBox(width: 4),
@@ -242,7 +242,7 @@ class _StockItemWidgetState extends State<StockItemWidget> {
                                     style: TextStyle(
                                       color: Color(0xFFFFB800),
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 13,
+                                      fontSize: 10,
                                     ),
                                   ),
                                 ],
@@ -273,14 +273,14 @@ class _IconText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(icon, color: const Color(0xFF8A97A8), size: 15),
+        Icon(icon, color: const Color(0xFF8A97A8), size: 12),
         const SizedBox(width: 4),
         Text(
           text,
           style: const TextStyle(
             color: Color(0xFF232B36),
             fontWeight: FontWeight.w600,
-            fontSize: 13,
+            fontSize: 12,
           ),
         ),
       ],

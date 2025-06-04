@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/profile/help_support_screen.dart';
 import 'package:estate_iq/presentation/screens/profile/setting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -121,7 +122,12 @@ class ProfileScreen extends StatelessWidget {
                           iconColor: Color(0xFFB6B6FF),
                           label: 'Help & Support',
                           onTap: () {
-                            debugPrint('Help & Support tapped');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HelpSupportScreen(),
+                              ),
+                            );
                           },
                         ),
                         _ProfileMenuItem(
