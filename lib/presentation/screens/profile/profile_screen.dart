@@ -1,4 +1,5 @@
 import 'package:estate_iq/presentation/screens/profile/help_support_screen.dart';
+import 'package:estate_iq/presentation/screens/profile/inquiry_screen.dart';
 import 'package:estate_iq/presentation/screens/profile/setting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -93,7 +94,12 @@ class ProfileScreen extends StatelessWidget {
                           iconColor: Color(0xFF6BEAFF),
                           label: 'My Inquiries',
                           onTap: () {
-                            debugPrint('My Inquiries tapped');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InquiryScreen(),
+                              ),
+                            );
                           },
                         ),
                         _ProfileMenuItem(
