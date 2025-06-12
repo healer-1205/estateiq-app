@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/profile/edit_profile_screen.dart';
 import 'package:estate_iq/presentation/screens/profile/help_support_screen.dart';
 import 'package:estate_iq/presentation/screens/profile/inquiry_screen.dart';
 import 'package:estate_iq/presentation/screens/profile/setting_screen.dart';
@@ -61,7 +62,14 @@ class ProfileScreen extends StatelessWidget {
                         Icons.edit_outlined,
                         color: Color(0xFF232B36),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditProfileScreen(),
+                          ),
+                        );
+                      },
                       tooltip: 'Edit Profile',
                     ),
                   ),
