@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/risk_analysis_screen.dart';
 import 'package:estate_iq/presentation/screens/roi_analysis_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -120,21 +121,31 @@ class PropertyDetailScreen extends StatelessWidget {
                           color: Color(0xFF232B36),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 4,
-                        ),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFD6F5E6),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: const Text(
-                          "Low Risk",
-                          style: TextStyle(
-                            color: Color(0xFF20C997),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RiskAnalysisScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFD6F5E6),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Text(
+                            "Low Risk",
+                            style: TextStyle(
+                              color: Color(0xFF20C997),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                            ),
                           ),
                         ),
                       ),
