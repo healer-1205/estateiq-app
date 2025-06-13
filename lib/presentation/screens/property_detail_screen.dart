@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/investment_analysis_screen.dart';
 import 'package:estate_iq/presentation/screens/risk_analysis_screen.dart';
 import 'package:estate_iq/presentation/screens/roi_analysis_screen.dart';
 import 'package:flutter/material.dart';
@@ -171,7 +172,6 @@ class PropertyDetailScreen extends StatelessWidget {
                     label: "ROI",
                     value: "12.5%",
                     onTap: () {
-                      // Handle ROI tap
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -193,7 +193,12 @@ class PropertyDetailScreen extends StatelessWidget {
                     label: "Min Invest",
                     value: "\$50k",
                     onTap: () {
-                      // Handle Min Invest tap
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InvestmentAnalysisScreen(),
+                        ),
+                      );
                     },
                   ),
                 ],
