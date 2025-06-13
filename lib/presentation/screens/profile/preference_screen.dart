@@ -431,7 +431,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                         _FeatureChip(
                           label: "Energy Efficient",
                           selected: features[0],
-                          icon: Icons.energy_savings_leaf,
+                          // icon: Icons.energy_savings_leaf,
                           onTap: () =>
                               setState(() => features[0] = !features[0]),
                         ),
@@ -439,7 +439,7 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                         _FeatureChip(
                           label: "Smart Home",
                           selected: features[1],
-                          icon: Icons.home,
+                          // icon: Icons.home,
                           onTap: () =>
                               setState(() => features[1] = !features[1]),
                         ),
@@ -700,29 +700,30 @@ class _FeatureChip extends StatelessWidget {
   final String label;
   final bool selected;
   final VoidCallback onTap;
-  final IconData? icon; // Add icon field
+  // final IconData? icon;
 
   const _FeatureChip({
     required this.label,
     required this.selected,
     required this.onTap,
-    this.icon, // Add icon to constructor
+    // this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return ChoiceChip(
+      showCheckmark: false,
       label: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (icon != null) ...[
-            Icon(
-              icon,
-              size: 18,
-              color: selected ? Colors.white : const Color(0xFF20C997),
-            ),
-            const SizedBox(width: 6),
-          ],
+          // if (icon != null) ...[
+          //   Icon(
+          //     icon,
+          //     size: 18,
+          //     color: selected ? Colors.white : const Color(0xFF20C997),
+          //   ),
+          //   const SizedBox(width: 6),
+          // ],
           Text(label),
         ],
       ),
