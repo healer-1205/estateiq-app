@@ -104,7 +104,7 @@ class _QuestionWaitingScreenState extends State<QuestionWaitingScreen>
                                 BoxShadow(
                                   color: const Color(
                                     0xFF13C39C,
-                                  ).withOpacity(0.2),
+                                  ).withValues(alpha: .2),
                                   blurRadius: 6,
                                   spreadRadius: 1,
                                 ),
