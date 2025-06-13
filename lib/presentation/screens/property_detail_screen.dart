@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/roi_analysis_screen.dart';
 import 'package:flutter/material.dart';
 
 class PropertyDetailScreen extends StatelessWidget {
@@ -158,16 +159,31 @@ class PropertyDetailScreen extends StatelessWidget {
                     icon: Icons.trending_up,
                     label: "ROI",
                     value: "12.5%",
+                    onTap: () {
+                      // Handle ROI tap
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RoiAnalysisScreen(),
+                        ),
+                      );
+                    },
                   ),
                   _InfoCard(
                     icon: Icons.calendar_month,
                     label: "Term",
                     value: "36 mo",
+                    onTap: () {
+                      // Handle Term tap
+                    },
                   ),
                   _InfoCard(
                     icon: Icons.account_balance_wallet,
                     label: "Min Invest",
                     value: "\$50k",
+                    onTap: () {
+                      // Handle Min Invest tap
+                    },
                   ),
                 ],
               ),
@@ -289,41 +305,47 @@ class _InfoCard extends StatelessWidget {
   final IconData icon;
   final String label;
   final String value;
+  final VoidCallback? onTap; // Add onTap property
 
   const _InfoCard({
     required this.icon,
     required this.label,
     required this.value,
+    this.onTap, // Add to constructor
   });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 4),
-        padding: const EdgeInsets.symmetric(vertical: 14),
-        decoration: BoxDecoration(
-          color: const Color(0xFFF6F7F9),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          children: [
-            Icon(icon, color: const Color(0xFF20C997), size: 24),
-            const SizedBox(height: 6),
-            Text(
-              label,
-              style: const TextStyle(color: Color(0xFF8A97A8), fontSize: 13),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              value,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF232B36),
-                fontSize: 15,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF6F7F9),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            children: [
+              Icon(icon, color: const Color(0xFF20C997), size: 24),
+              const SizedBox(height: 6),
+              Text(
+                label,
+                style: const TextStyle(color: Color(0xFF8A97A8), fontSize: 13),
               ),
-            ),
-          ],
+              const SizedBox(height: 2),
+              Text(
+                value,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF232B36),
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
