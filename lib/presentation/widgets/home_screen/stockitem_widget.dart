@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/property_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class StockItemWidget extends StatefulWidget {
@@ -18,6 +19,10 @@ class _StockItemWidgetState extends State<StockItemWidget> {
         borderRadius: BorderRadius.circular(18),
         onTap: () {
           // handle card tap
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PropertyDetailScreen()),
+          );
         },
         child: Container(
           decoration: BoxDecoration(
