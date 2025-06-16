@@ -16,7 +16,6 @@ class _MainScreenState extends State<MainScreen> {
     HomeScreen(),
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
     ProfileScreen(),
   ];
 
@@ -46,10 +45,6 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.binoculars),
             label: 'EXPLORE',
-          ),
-          BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.calculator),
-            label: 'FIN TOOLS',
           ),
           BottomNavigationBarItem(
             icon: FaIcon(FontAwesomeIcons.heart),
