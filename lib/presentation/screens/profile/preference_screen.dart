@@ -135,12 +135,6 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
                           selected: selectedGoal == 2,
                           onTap: () => setState(() => selectedGoal = 2),
                         ),
-                        _GoalCard(
-                          icon: Icons.key,
-                          label: "First-Time\nPersonal Use",
-                          selected: selectedGoal == 2,
-                          onTap: () => setState(() => selectedGoal = 2),
-                        ),
                         // Add more cards here if needed
                       ],
                     ),
