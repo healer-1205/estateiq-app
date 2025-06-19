@@ -1,3 +1,4 @@
+import 'package:estate_iq/presentation/screens/favorite_screen.dart';
 import 'package:estate_iq/presentation/screens/home/home_screen.dart';
 import 'package:estate_iq/presentation/screens/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+    FavoriteScreen(),
     ProfileScreen(),
   ];
 
