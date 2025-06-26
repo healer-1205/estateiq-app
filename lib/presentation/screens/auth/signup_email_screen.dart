@@ -1,20 +1,23 @@
 import 'package:estate_iq/presentation/screens/auth/otp_screen.dart';
-import 'package:estate_iq/presentation/screens/auth/signup_screen.dart';
+import 'package:estate_iq/presentation/screens/auth/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpWithEmailScreen extends StatefulWidget {
+  const SignUpWithEmailScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpWithEmailScreen> createState() => _SignUpWithEmailScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
+  final FocusNode _confirmPasswordFocus = FocusNode();
   bool _obscurePassword = true;
   bool _agreeTerms = false;
 
@@ -22,6 +25,7 @@ class _SignInScreenState extends State<SignInScreen> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _confirmPasswordFocus.dispose();
     _emailFocus.dispose();
     _passwordFocus.dispose();
     super.dispose();
@@ -203,21 +207,58 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           textInputAction: TextInputAction.done,
         ),
-        const SizedBox(height: 8),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton(
-            onPressed: () {},
-            child: const Text(
-              'FORGOT PASSWORD?',
-              style: TextStyle(
-                color: Color(0xFF1B2B48),
-                fontWeight: FontWeight.w600,
-                fontSize: 12,
+        const SizedBox(height: 16),
+        // Confirm Password Field
+        TextField(
+          controller: _confirmPasswordController,
+          focusNode: _confirmPasswordFocus,
+          obscureText: _obscurePassword,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(
+              Icons.lock_outline,
+              color: Color(0xFF8A97A8),
+            ),
+            hintText: 'confirm Password',
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+            ),
+            suffixIcon: IconButton(
+              icon: Icon(
+                _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                color: const Color(0xFF8A97A8),
               ),
+              onPressed: () {
+                setState(() {
+                  _obscurePassword = !_obscurePassword;
+                });
+              },
             ),
           ),
+          textInputAction: TextInputAction.done,
         ),
+        // const SizedBox(height: 8),
+        // Align(
+        //   alignment: Alignment.centerRight,
+        //   child: TextButton(
+        //     onPressed: () {},
+        //     child: const Text(
+        //       'FORGOT PASSWORD?',
+        //       style: TextStyle(
+        //         color: Color(0xFF1B2B48),
+        //         fontWeight: FontWeight.w600,
+        //         fontSize: 12,
+        //       ),
+        //     ),
+        //   ),
+        // ),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -329,7 +370,7 @@ class _SignInScreenState extends State<SignInScreen> {
             text: TextSpan(
               style: const TextStyle(color: Color(0xFF8A97A8), fontSize: 13),
               children: [
-                const TextSpan(text: "You don't have account Signup ? "),
+                const TextSpan(text: "Already have an account? "),
                 WidgetSpan(
                   alignment: PlaceholderAlignment.middle,
                   child: TextButton(
@@ -337,7 +378,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       // Navigate to Sign In Screen
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                        MaterialPageRoute(builder: (context) => SignInScreen()),
                       );
                     },
                     style: TextButton.styleFrom(
@@ -346,7 +387,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: const Text(
-                      'Sign up',
+                      'Sign In',
                       style: TextStyle(
                         color: Color(0xFF179C6C),
                         fontWeight: FontWeight.bold,
