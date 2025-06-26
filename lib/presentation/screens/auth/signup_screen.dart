@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:estate_iq/presentation/screens/auth/signin_screen.dart';
+import 'package:estate_iq/presentation/screens/auth/signup_email_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -166,7 +167,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 10),
               TextButton.icon(
                 onPressed: () {
-                  // Handle Email Sign Up
+                  // Navigate to SignUpWithEmail Screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SignUpWithEmailScreen()),
+                  );
                 },
                 icon: const FaIcon(
                   FontAwesomeIcons.solidEnvelope,
