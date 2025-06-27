@@ -70,7 +70,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 // White Card with scroll
                 Positioned(
-                  top: constraints.maxHeight * 0.01,
+                  top: constraints.maxHeight * 0.08,
                   left: 0,
                   right: 0,
                   bottom: 0,

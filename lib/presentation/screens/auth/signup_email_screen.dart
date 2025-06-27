@@ -11,10 +11,12 @@ class SignUpWithEmailScreen extends StatefulWidget {
 }
 
 class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
+  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+  final FocusNode _nameFocus = FocusNode();
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
   final FocusNode _confirmPasswordFocus = FocusNode();
@@ -23,9 +25,11 @@ class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
 
   @override
   void dispose() {
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _confirmPasswordFocus.dispose();
+    _nameFocus.dispose();
     _emailFocus.dispose();
     _passwordFocus.dispose();
     super.dispose();
@@ -74,7 +78,7 @@ class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
                 ),
                 // White Card with scroll
                 Positioned(
-                  top: constraints.maxHeight * 0.01,
+                  top: constraints.maxHeight * 0.08,
                   left: 0,
                   right: 0,
                   bottom: 0,
@@ -127,7 +131,7 @@ class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const Text(
-          'Welcome Back',
+          'Create Account',
           textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 28,
@@ -137,11 +141,40 @@ class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
         ),
         const SizedBox(height: 8),
         const Text(
-          'Log In to access your saved searches, \nproperties and much more',
+          'Join EstateIQ to access your saved searches, \nproperties and much more',
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 13, color: Color(0xFF8A97A8)),
         ),
         const SizedBox(height: 32),
+        // Name Field
+        TextField(
+          controller: _nameController,
+          focusNode: _nameFocus,
+          decoration: InputDecoration(
+            prefixIcon: const Icon(
+              Icons.person_outline,
+              color: Color(0xFF8A97A8),
+            ),
+            hintText: 'Enter Full Name',
+            filled: true,
+            fillColor: Colors.white,
+            contentPadding: const EdgeInsets.symmetric(vertical: 12),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: Color(0xFFE5E7EB)),
+            ),
+          ),
+          keyboardType: TextInputType.name,
+          textInputAction: TextInputAction.next,
+          onEditingComplete: () {
+            FocusScope.of(context).requestFocus(_passwordFocus);
+          },
+        ),
+        const SizedBox(height: 16),
         // Email Field
         TextField(
           controller: _emailController,
@@ -362,7 +395,7 @@ class _SignUpWithEmailScreenState extends State<SignUpWithEmailScreen> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          child: const Text('Log In', style: TextStyle(color: Colors.white)),
+          child: const Text('Create Account', style: TextStyle(color: Colors.white)),
         ),
         const SizedBox(height: 16),
         Center(
